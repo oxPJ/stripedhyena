@@ -21,7 +21,7 @@ class RMSNorm(torch.nn.Module):
         self.use_flash_rmsnorm = config.get("use_flash_rmsnorm", False)
 
         if self.use_flash_rmsnorm:
-            from flash_attn.ops.rms_norm import rms_norm as rmsnorm_func
+            from flash_attn.ops.triton.layer_norm import rms_norm as rmsnorm_func 
 
             self.rmsnorm_func = rmsnorm_func
 
